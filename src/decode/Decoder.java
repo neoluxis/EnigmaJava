@@ -1,7 +1,5 @@
 package decode;
 
-import components.ParaResolver;
-
 public class Decoder {
 
   ParaResolver pr = new ParaResolver();
@@ -10,4 +8,8 @@ public class Decoder {
     Decoder en = new Decoder();
     en.equals(en);
   }
+}
+
+class Parameters{
+
 }
