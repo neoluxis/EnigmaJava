@@ -95,7 +95,7 @@ Have resolved the paraphrase and created the decoder, it's just another encoder.
 
 ### Scalability of The Enigma Machine
 
-- You can add more maps in `toolchain/Maps` so that you can encrypt your words in more other ways. 
+- You can add more maps in `toolchain/Maps` so that you can encrypt your words in more other ways. Note that the maps can only one-to-one, otherwise you can't decrypt the word. 
 
 - You can also add more wheels in the wheel set, in this case the words will be encrypted more times.
 
