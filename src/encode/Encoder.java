@@ -1,12 +1,11 @@
 package encode;
 
-import components.Keyboard;
-import components.Switcher;
-import components.WheelGroup;
+import components.*;
 import java.util.Scanner;
 
 public class Encoder {
 
+  private final ParaGenerator para;
   /***
    * Keyboard
    */
@@ -47,9 +46,7 @@ public class Encoder {
    * Initiate the keyboard, switcher, wheel group without any parameter.
    */
   public Encoder() {
-    this.kbd = new Keyboard();
-    this.sw = new Switcher();
-    this.wg = new WheelGroup();
+    this(0, 0, 0);
   }
 
   /***
@@ -60,6 +57,7 @@ public class Encoder {
     this.sw = new Switcher();
     int[] is = { a, b, c };
     this.wg = new WheelGroup(is);
+    this.para = new ParaGenerator();
   }
 
   /***
@@ -120,12 +118,9 @@ public class Encoder {
    * Generate a seed to create an Enigma
    * @return a String containing all data to form an Enigma
    */
-  //   public String getSeed() {
-  //     ParaphraseGen psw = new ParaphraseGen(this.sw, this.wg);
-  //     String ret = "";
-  //     ret += psw.getPass();
-  //     return ret;
-  //   }
+  public String getSeed() {
+    return para.getParaphrase();
+  }
 
   public static void main(String[] args) {
     Encoder enigma = new Encoder();

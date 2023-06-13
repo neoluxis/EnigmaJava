@@ -3,30 +3,52 @@ package components;
 import decode.Decoder;
 import encode.Encoder;
 
-public class Paraphrase {
+public abstract class Paraphrase {
 
   /**
    * Paraphrase
    */
-  private String paraphrase = "";
+  protected String paraphrase;
   /***
    * Keyboard
    */
-  Keyboard kbd;
+  private final Keyboard kbd;
   /***
    * Switcher
    */
-  Switcher sw;
+  private final Switcher sw;
   /***
    * Wheel Group
    */
-  WheelGroup wg;
+  private final WheelGroup wg;
 
-  public Paraphrase() {}
-
-  public Paraphrase(Encoder en) {
-
+  public Paraphrase() {
+    this.kbd = new Keyboard();
+    this.sw = new Switcher();
+    this.wg = new WheelGroup();
+    generateParaph();
   }
 
-  public Paraphrase(Decoder de) {}
+  public Paraphrase(Encoder en) {
+    this.kbd = en.getKbd();
+    this.sw = en.getSw();
+    this.wg = en.getWg();
+    generateParaph();
+  }
+
+  public Paraphrase(Decoder de) {
+    this.kbd = de.getKbd();
+    this.sw = de.getSw();
+    this.wg = de.getWg();
+    generateParaph();
+  }
+
+  private String generateParaph(){
+    this.paraphrase = "";
+    return this.paraphrase;
+  }
+
+  public final String getParaphrase() {
+    return paraphrase;
+  }
 }
